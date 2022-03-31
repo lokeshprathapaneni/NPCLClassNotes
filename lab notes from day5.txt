@@ -1,0 +1,1718 @@
+
+
+Day5:
+
+1)Inheritence
+
+a)IS-A relationship
+b)Has-A relationship
+
+2)This keyword
+
+3)Super keyword
+
+1)Inheritence:it is a process of creating parent and child relationship between two classes so that child can access everything Parent has
+->reusability
+
+
+class A {
+//1000 fields
+//1000 methods
+//
+ 
+public voud m1(){
+//some implementation
+}
+}
+
+class B{
+public voud m1(){
+//some different implementation
+}
+//classB specific fields and methods
+
+}
+
+class C extends B extends A{
+//1000 fields
+//1000 methods
+public voud m1(){
+//some different implementation
+}
+//classB specific fields and methods
+
+
+}
+
+
+-->immediate parent and parent
+-->multiple inheritence is not possible in java through classes
+-->Parent reference can hold Child object and that is allowed
+
+B b=new B();
+
+A b=new B();
+
+A a=new C();
+
+B b=new A();
+
+C c=new B();
+
+C c=new A();
+
+
+---> when  to create parent -child relationship?
+when there is common functionality and required in other classess instead of duplicating we can create Parent-Child relationship
+
+
+--->give least priority to IS-A unless if you want most of the functionality from parent because in future if you really want to extend any other class that 
+is not feasible
+
+
+
+
+
+This keyword: This keyword represents current instance
+
+usecase1:when local variable and nonstatic variable are of same name we will use this keyword to resolve ambiguity
+usecase2: in non static method to access another non static method THis key word is optional because JVM will add it
+
+-->COnstructor with args:
+
+
+------------------------------------------------------------------------------------------------------------------------------
+Day 6 
+
+1)discuss rest of This key word use cases
+2)Super keyword and use cases
+3)Polymorphism
+      -Method Overloading
+
+
+This:
+usecas3: constructor chaining
+
+Note: from non static area if you are creating current class object replace with this
+
+usecase4:method accepting current class object
+
+
+Super:Super key word refers parent class reference
+
+usecase1:if both parent and child has the same field name then child class field will have the precedence but if we want to refer to parent class field 
+we should use super keyword.
+
+usecase2:if both parent and child has the same method name then child class field will have the precedence but if we want to refer to parent class method
+we should use super keyword.
+
+
+from child reference how to set values  to parent class fields
+usecase3:to chain superclass constructor from current class constructor
+
+usecase4: from current class constructor call setter and assign values
+
+
+
+----------------------------------------------------
+Day 7
+
+Polymorphism: performing one activity in multiple forms
+
+a)Overloading : methodName+ different args
+benefit:no need to define multiple methods for same functionality
+
+if exact is match is not found compiler will not throw error immediately rather tries to typecast to highr datatypes
+
+byte short
+          int float long double
+    char
+
+class A{
+
+public void add(){}
+
+public void add(int b){}
+
+public void add(byte b){}
+ main(){
+new A().add(5.0);
+}
+
+}
+
+b)Overriding : IS- A relationship
+
+class A{}
+
+class B extends A{}
+
+class Test{
+50 methods
+public A dummy(){---overridden method
+//some logic
+}
+}
+
+Class TestA extends Test{
+ public B dummy(){---overriding  method
+//some different logic
+}
+}
+
+
+class Exception{}
+
+class FileNotFoundxception{}
+
+class A extends FileNotFOundxception{}
+
+when a child class can have method same as parent then such method is called Overrding method
+
+-->in parent -child relationship if you are not satisfied with parent class implementation we can ovverride in the child  and customize the implementation
+
+for overriding method co-varient return types are allowed
+-->overriding method return should be same as parent or childrent to overriden methods return type
+--> or objects
+-->exeption handling
+-->public-protected-default-private
+--> access modifier scope cannot be reduced
+class A{
+public void getA() throws A{
+//some specific logic
+}--->overridden method
+}
+}
+
+class B extends A{
+//public void getA() throws FIleNotfoundxception{
+//different logic
+}--->Overriding method
+}
+
+-->overloading is also called as static/early/compile polymorphism
+-->overriding is also called as dynamic/lazy/ runtime polymorphism
+
+Day 8:
+1)Method Hiding
+2)final class, final method and final variable
+3)protected methods access
+4)Abstraction
+a)Abstract classes
+b)interfaces
+
+
+
+
+1)Method hiding:it is compiletime polymorphism
+
+-->it will come into picture only in IS-A relationship
+cte-->both parent class method and child class methods should be either static or both non static
+-->method hiding is compile time polymorphism
+..>in IS-A relationship if parent and child has same method and with static key word then only its method hiding
+
+
+//when to define a method as static?
+
+in you method body if your requirement  doesnt need to access non static members then only create a method as a static otherwise declare the method as non static
+
+4)Abstraction:
+the process of hiding unnecessary details and providing the necessary details is Abstraction
+
+--> by using Abstract classes and interfaces we achieve the abstraction.
+
+1)Abstract class
+
+features of Abstract class:
+--> we can use the keyword abstract only to classes and methods but not to the fields
+--> if there is atleast one single abstract method in anyclass  that class is supposed to be delared as abstract
+-->abstract methods will not have method body it will have only method declaration
+-->for abstract methods will provide implementation by creating child classes
+-->for abstract classes we cannot create objects
+--> abstract class allows all memebrs  like anyother java class (private,public,def,protected,static and non static memebrs)
+
+abstract class A{
+private 
+public void dummy();
+
+}
+
+
+
+2)Interfaces
+
+-->all the methods till java 1.7 in iterfaces are abstract
+--> you dont have to explicitly specify access modifier Public because every method definition in interface is by default public
+--> you dont have to explicitly specify keyword Abstract because every method is by default abstract.
+-->you can only have final fields because every field is by default public static final
+-->implemention of abstract methods are provided by childs
+--> we cant create object to interfaces
+
+--> static methods are allowed in java from java 1.8
+-->default methods are allowed in java from java 1.8
+
+
+interface A implement c,d{}
+class C{} 
+class B extends  C implements A,n{}
+
+abstract class Test{
+
+non static metods , private fields
+}
+
+
+
+Day 9:
+
+-->java.lang package
+
+1)Object
+
+class A extnds B{}
+
+
+className@exInteger
+
+sysout(obj.toString()); ALT+shift+s,s
+a)toString
+b)equals == compares the references
+c)hashcode
+d)finalize
+e)clone
+f)wait,notify and notifyall 
+
+2)String constant pool -Strings,StringBuffer StringBuilder
+
+
+-->java.lang is the only package in java which we dont have to import explicitly
+
+-->Object class 
+--> this is parent to every java class
+
+class A{}
+class B extends A{}
+
+
+toString(): toString method purpose it to return string format of any object so that when you print any object jvm will invoke toString()..
+we can see the data of object in meaningfull way
+
+equals(): equals method in object class is used to compare to objects..we will have to override and provide implementation to equals() for content comparison
+
+hashcode(): everytime we create an object JVM will create unique id for every object
+
+-->if two objects are same by equals method there hashcode must be same
+
+
+finalize():
+Garbage collector is a deamon thread which will be running in back end on timely basis, it will check if there is any unrefrence objects it will clean it
+--> if you want to perform any activity write in finalize method
+
+-->if an interface contains no methods it is called marker interface
+-->marker interface will give some information to JVM
+
+
+
+cloning:it is process of taking a copy of an object
+
+class Object{
+clone()
+}
+
+
+class Employee{
+
+int empId;
+String empName;
+
+Employee(int empId,Sreing empName){
+this.empId=empId;
+this.empName=empName;
+}
+
+main(){
+Employee emp=new Employee(101,"sathish");
+
+Employee emp1 =(EMployee)emp.clone();
+
+}
+
+}
+
+
+shallow cloning:if a  class is not having references to any other classes then we can use object class clone method
+
+
+Day 10: 
+
+1)exception Handling
+a)Try catch finally
+b)exception Hierarchy
+c)checked vs unchecked
+d)throw
+e)throws
+f)custom exception
+g)ovrriding with exception handling
+
+
+Exceptions:are unwanted events which breaks normal execution flow
+
+Exceptions handling:  exception handling is a mechanism through which we can provide  alternative flow of execution in the event of exception
+
+risky code: in any piece of code if there is chance of xception that line is called risky code
+
+we will have to provide exception handling to risky code
+
+class A{
+
+main(){
+st0;
+try{
+st1;
+st2;
+st3
+
+}catch(e){
+st4;
+st5;
+
+}
+
+st6;
+
+}
+}
+
+output1: exception at st0
+
+output2: exception at st1 and matching catch block is found 
+
+
+-->finally will execute always even when an exception is occured
+
+output3: exception at st1 and matching catch block is not found 
+
+
+output4: exception at st2 and matching catch block is not found 
+
+
+output5: exception at st4 
+
+
+main(){
+
+st1;
+try{
+st2:
+}catch(){
+
+}
+st3:
+
+
+}
+
+public void div(int x){
+
+sysout(10/x);
+}
+
+div(0);
+
+add('c','d');
+
+
+syntax:
+try{
+//riskicode
+}catch(){
+
+}
+
+
+try{
+//st1
+//10/0
+}fianlly{
+
+}
+
+
+checked exceptions:
+compiler will check if exceptions are handled or not if not handled copiler will throw error
+
+unchecked exceptions:compiler will not check
+
+Fully checked exceptions:when children also fully checked
+
+Partially checked exceptions:checked + unchecked excpetion
+
+
+
+-->try{
+//if risky code is not having chance of throwing error
+}catch(fully checked exception){}
+
+
+
+-->for fully checked exceptions we should have valid code in the try block
+
+class Axception extends Exception{}
+
+class BException extends Runtimexception{
+
+}
+
+try{
+//we should some valid code
+}
+catch(SQLxception){
+}
+
+custom exception: exceptions developer creates as required
+
+Checked custom exceptions: class InvalidDatexception extends IOxception 
+unchecked custom exception:class  InvalidTimexception extends RuntimeException{}
+
+
+-->throw keyword is used to trigger or raise an exception
+
+-->Throws :when we should throws exception
+-->if we doubt there might be chance of exception to give heads up to the caller we use throws key words
+-->if we dont want th handle just to not get the compile time error we can delegate exception handling responsibility
+
+public int div(int x) throws Arithematicxception{
+return 10/x;
+}
+
+
+
+
+
+
+
+Day 11:
+
+1) ovrriding with exception handling
+
+class A{
+
+public void getA() extends IOx{}
+}
+
+class B extends A{
+
+public void getA() throws FilNF{}
+}
+
+2)Strings vs String builder vs String buffer
+
+3)String constant pool
+
+
+
+4)immutability
+
+5)Wrapper classes
+byte-->Byte
+
+1)Overriding rule wrt checked exceptions
+
+
+class A{
+ public void getA() throws ParentCheckedxception{}
+}
+
+class B extends A{
+public void getA() throws Checked{}
+}
+
+
+-->child can skip throws same exceptions
+-->child can throw same exception or its children but not parent of overriden 
+
+
+
+2)String
+
+how many ways we can create String object
+
+1) String s="sathish";
+2)String s1=new String("sathish");
+
+--> within "" everything is called as String literal
+
+
+-->String is immutabilty
+once a string object is created, the same object cannot be modified..if modified it will be in a new object
+
+-->StringBuffer and String Builder are exectly same except stringbuffer methods are synchronized
+
+--> immutability: we will not be able to change the content if tries to change create a new object
+
+
+--> whenever we are modifying check if the data is existing if existing return the same otherwise create new object
+
+
+Wrapper classes:
+
+-->we call java as OOP because java developed based on OOPS principle
+-->wrapper classes are to represent primitives in the form of Objects
+
+byte-->Byte
+short-->Short
+int--->Integer
+char-->Character
+long-->Long
+boolean-->Boolean
+float-->Float
+double-->Double
+
+--> we cannot create objects to primitives but we can create objects to wrapper classes
+-->java is not 100% oop as it is allowing primitives
+--> we can always replace primitives with wrapper classes
+
+
+-->every wrapper class has provided two constructors to convert primitive to wrapper
+
+1)input as primitive 
+2)String as input
+ex:
+byte x=30;
+  new Byte(x);
+
+3)valueOF static methods in every wrapper class is to convert primitive to Wrapper
+
+3)String to primitive--> we can use parseXXX
+
+
+--->AutoBoxing and auto unboxing ..allwed from 1.5 version
+
+Integer x=30;
+int x=new Integer(30);
+
+Autoboxing: primitives are directly wrapped into respective wrapper ..behind the screens compile will use valueOf method
+
+Autounboxing:wrappers can be directly assigned to primitives ..behind the screens it will be use parseXXX
+
+
+Day 12: Collections Framework
+
+1)Why collections..collections vs arrays
+2)Collection hierarchy
+3)list implementation classes
+4)iterators
+5)Set
+6)Equals and hashcode
+
+
+1)Why collections: ollections are used to store group of elemets as single 
+entity by allowing both homogeneous and heterogeneous without any size limitation and provided utility methods
+
+//arrays size is predefined and fixed
+//arrays are homogeneous
+//since arrays doesnt follow any data structures there are no utility methods for common processing
+
+
+-->collections are growable in nature
+
+List:(arraylist,linkedlist,vector and stack)
+-->insertion to be preserved
+-->duplicates to be allowed
+
+Set:
+-->insertion is not preserved its based on ds
+-->duplocates are not allowed
+
+shortcut to rename a field :alt +shift + R
+shortcut to duplicate a line:ctrl+alt+down arrow
+shortcut to delet a lint :ctrl+d
+
+
+
+
+Vector 1.0:
+-->its been introduced in 1.0 version
+-->its exactly same as arraylist except that all the methods are synchronized
+
+-->if frequent operation are inserting in middle of collections AL or vectors are not recomended
+-->if frequent operation are removing elements from middle of collections AL or vectors are not recomended
+-->if adding element at last is the requirement Arraylist or vector is recommended
+Linkedlist:
+-->Datastructure is double linked list
+-->if frequent operations are inserting in middle or removing Linked list is recomended.
+
+
+Set implementations:
+
+Hashset:
+-->duplicates are not allowed
+-->insertion order is based on hashing datastructure
+
+-->hashset,linkedhashset,hashmap,hashtable,IHM,WHM,CHM
+
+equals & hashcode():
+
+the only reason -->to not allow duplicates
+
+1)if two objects are equals by equals() then there hashcode() same
+2)if two objects hashcode is different  then objects are not same
+3)if two objects hashcode is same , objects may be same or may not be same
+
+
+--> hashset'add method calls hashcde() if hashcode is different then it will never invoke equals() ..it determines the object is unique and adds to the set
+-->if hashcode is same as existing one in the set, then only it will cal equals()  to content check and determine if the object is unique or duplicate
+
+
+
+Day13:
+1)Set implementations 
+2)iterators
+
+
+1)Treeset:
+
+-->Binarytree datastructure
+-->purpose of treeset is for sorting
+-->duplicates shouldnt be allowed
+-->insertion order is not preserved
+
+-->the object we are trying to insert into Tresset must be of type Comparable otherwise we will get ClasscastException
+-->all the wrapper classes and String are comparable classes
+
+class Employee implements Comaprable<E>{
+int empId;
+String empName;
+}
+
+class Test{
+main(){
+NEW tS<>(new mparator())
+ts.add
+}
+
+}
+
+Day 14:
+
+-->Map implementaion classes
+1)HashTable
+2)HashMap
+3)LinkedHashMap
+4)IdentityHashMap
+5)TreeMap
+6)Stack
+
+
+1)Maps are used to store collection of key-value pairs as a single entity
+
+-->empid ===>employe(empid,empname)
+-->Each key-value pair is called Entry
+-->keys should be unique, if with the same key if your entering different value, map updates 
+-->values can be duplicaed
+
+
+
+HashMap:
+-->key and values as null
+
+Hashtable:
+-->its legacy one and exactly same as Hashmap
+-->all the methods are synchronized in HashTable
+-->both keys and values null is not allowed
+
+LinkedHashMap
+-->insertion order of keys is preserved
+
+IdentityHashMap identifies duplicates based on ==
+
+
+
+Assignment1: Hashset
+
+class Student{
+//id and name
+}
+
+if id and name is same student is equals
+
+
+Assignment2: Treset
+1)provide sorting based on id using comparable
+2)provide sorting using empName using comparator
+class Student implements Comparable{
+
+//id and name
+}
+
+
+Day15:
+
+1)Tresset
+2)various ways to iterate a map
+3) few utility methods 
+
+
+
+1)Treset:
+
+if we want to sort the key-value pair collection based on keys we should use Tree map
+
+
+map:
+
+keySet()
+values()
+entryset()
+
+
+
+
+
+
+List:
+AL-->
+LL
+Vector
+Stack-LIFO
+push, pop
+
+Set:
+Hashset
+LinkedHashset
+Treeset
+
+Map:
+-->keys should be unique
+-->values can be duplicated
+
+Hashtable:
+-->all the methods are synchronize
+-->null is not allowed anywhere
+Hasmmap
+-->null is allowed
+linkedhM
+-->insertion ordr to be preserved
+
+TreeMap
+-->sort key-value pairs based on the keys we will have to use tm
+
+Utility methods:
+
+list to Array
+
+array to list
+
+
+Day 16 Session1:
+
+1)Inner classes
+2)various types of Inner classes
+3)ANonymous Inner classes
+4)Default Methods in Interfaces
+5)Static methods in Interfaces
+6)Functional INterfaces
+7)Lambda ExpressionS
+8)StreamAPI
+
+
+
+
+why do we need inner classes?
+
+
+class Employee {
+
+main(){
+
+}
+
+class Department{
+p v m1(){}
+
+
+p v m2(){}
+
+//100
+}
+
+
+}
+
+
+
+class A{}
+
+class B{}
+
+
+
+
+1)Static Inner classes
+
+
+class A{
+
+int x;
+
+static int y;
+
+void m1(){}
+
+static void m2(){
+
+
+
+
+}
+
+static class B{
+
+//non static memebers and static mebers
+//from static inner class we can only access outer class static meber not the instance members
+
+}
+
+
+}
+
+
+//creating object to static inner class
+syntax:
+new Outerclass.InnerClass();
+
+
+
+2)Member Inner class
+
+-->in non static inner class you can access anything from the outer class
+--> in non static inner class we can only have non static mebers
+
+class A{
+//static and non static fields
+
+class B{
+//you can access anything from the outer class
+}
+
+}
+
+
+==>object creation for static innerclass
+new outer.inner();
+
+==>object creation for non static inner class
+
+Step1: create outer class object
+step2:with outer class reference create inner class object
+
+OuterClass o=new OuterClass();
+o.new InnerClass();
+
+
+
+-->Anonymous inner classes:
+
+-->creating anonymous inner class without a name
+-->create child class anynomously and override parent class methods
+
+
+//syntax for anonymous Ineer class
+
+new SuperClass(){}
+
+--> we can create anonymous inner classes to Interfaces
+--> we can create for abstract classes
+--> we can create for any normal class
+
+
+
+Lambda Expressions:
+
+-->Lambda expressions we can only write for Interfaces.
+-->Interface should consist only one abstract method
+-->Lambda expressions are replacement to ANonymous inner classes for interfaces
+
+
+syntax for Lambda:
+
+()->{}
+
+Functional interfaces:
+
+Functional interfaces are the interfaces with one Single abstract methods
+--> it can contain one abstract methods and multiple default and static methods
+
+
+Default methods in interfaces:
+
+-->Default methods are introduced in Java 8 for future enhancements to not force all implementation classes to override
+
+
+Static methods:
+we will use static methods in interfaces to provide utility methd support
+-->if there is some common functionality required for the implementation classes of the interface instead of writing the common logic in all the implementation classes
+we can write just in interface static method.
+
+
+interface A{
+
+static void sendEmail(){
+//logic to send EMail
+}
+
+}
+
+class B implements A{
+ 
+A.sendEmail();
+
+
+}
+
+class B1 implements A{
+
+}
+
+class B2 implements A{}
+
+
+
+
+Stream API:
+
+-->Stream api is used to process the collection
+
+
+-->method references
+
+if the purpose of lambda expression you are writing to just call another method  we can use method refrences instead of lambda
+
+static method references:
+ClassNam::methodName
+
+
+Day 17:
+->map()
+
+List<Employee>
+
+List<String> empName
+->sorted()
+->iterating a map
+forEach((kry,val)->{
+sysout(key)
+
+sysout(value)
+})
+-> Optional in java 8
+
+
+Day18:
+->MultiThreading
+-->No of ways we can create a thread
+--> accessing or retrieving a Thread object
+
+
+Multithreading:
+
+It is process of creating and executing multiple threads simultaneouly to reduce the execution time.
+
+Thread is nothing but independent flow of execution
+
+
+class Test{
+
+main(){
+//1000 instruction
+
+}
+
+
+-->Creating a Thread by extending Thread class 
+
+Steps1: extend a class from Thread
+step2: override run method
+step3:invoke THread start()
+
+
+class A extends Thread{
+
+public void run(){
+//instructipns
+}
+main(){
+new A().start();
+}
+}
+
+purpose of start method is to register the thread object with Threadscheduler and invoke run()
+
+-->we should never call run() in multithreading as it is just normal method call
+-->we should not override start method
+
+
+Thread Life cycle:
+start readytoRun running Dead
+
+
+second way to create a thread object is directly creating child to Runnable
+
+class B implements Runnable{
+
+public void run(){
+
+Thread th=THread.currentTHread();
+//instructipns
+}
+
+class Test{
+main(){
+B b=new B();
+
+THread th=new THread(b);
+th.start();
+th.setPriority(1-10);
+th.getPriority();
+
+}
+
+}
+
+
+
+
+
+}
+
+4 ways to create a THread:
+
+1)extends Thread and override run() and invoke by start() : this is not recommended because in future we cant extend other classes
+2)implements Runnable and override run() and pass runnable object to THread constructor and call start()
+3)providing runnable object as anonymous inner class to the Thread constructor
+4)replacing anonymous inner class with lambda expressions
+
+
+Thread prioritiy: Every thread will have a priority based on priority THread scheduler may allocatate time for the thread
+default priority of main thread is 5
+every subthread will attain priority from parent thread
+we can give priority by calling setPriority
+-->min priority is 1 and max priority 10 
+-->if we give out of range we will run into IllegalArgumentException
+
+
+Day 19:Project core java
+
+Day 20: 
+
+-->sleep()
+-->yield()
+-->join
+-->synchronized methods
+
+
+
+class A{
+
+public void getA(){
+
+}
+
+main(){
+
+Thread t1;
+
+Thread t2;
+
+t1.start();
+
+t2.start();
+
+//some logic
+
+t1.join(1000);
+
+}
+
+}
+
+
+
+
+
+-->sleep(): this is used to make currentThread to wait for certain amount of time
+-->this might leads to an Interruptedxception so this method is designed to throw checked Exception
+
+
+yield(); this is just a request to thread scheduler that to make current thread to wait and give priority to other threads, thread scheduler may consider the request
+or ignore
+
+
+join():  it is used to wait until other thread completes the execution.
+-->used to give priority to certain thread
+note: you should invoke join method on a THread object 
+
+Synchronization: its process of making only one thread to execute a method at a time
+
+class THreadTest{
+
+main(){
+
+Test t=new Test();
+Thread t1=new THread(()->{
+t.getA();
+})
+
+Thread t2=new THread(()->{
+t.getB();
+})
+
+t1.join();
+
+
+
+}
+
+}
+class Test{
+
+public synchronized void getA(){
+
+
+}
+
+
+public synchronized void getB(){}
+
+public void getC(){}
+
+
+}
+
+
+--> when we have multiple synchronized() in a class
+
+if one thread gets a chance to execute one synchronized method ..
+in the mean time no other thread can execute any synchronized method but always can execute non synchronized methods
+
+day 21:
+1)Static synchronized
+2)synchronized blocks
+3)inter thread communication
+4)Deamon THreads
+
+
+class A{
+main(){
+
+Test t=new Test();
+
+Test t0=new Test();
+Thread t1=new THread(()->{t.getTest());
+Thread t2=new THread(()->{t0.getTest());
+t1.start();
+t2.start();
+}
+}
+
+class Test{
+
+public void static synchronized getTest(){}
+
+}
+
+
+
+
+static synchronized: There are two kinds of locks
+
+1)Object level--> just synchronized
+2)class level -->using static synchronized
+
+
+->when you define a method as synchronized it is object level locking , if multiple threads try to access synchronized method on same object then we will achieve data
+consistency because the other threads will be in waiting state
+
+-->, if multiple threads try to access synchronized method with different objects we will not achieve data consistency because its object level locking and each thread is 
+using different lock
+
+-->when to go for class level locking?
+
+when you have multiple threads and multiple objects and if you want achieve data consistency use class level locking(static synchronized)
+
+
+Synchronized block:
+
+
+public  void printNumbersSecond50() {
+//1000 instruction
+
+synchronized(this){
+//1 instruction requires consistency
+}		
+}
+
+
+synchronized(Test.class){
+//1 instruction requires consistency
+}		
+
+
+
+Inter Thread Communication:
+
+-->One thread can communicate with other thread by using wait,notify and notifyALl
+-->inter thread communication comes into picture only with synchronized block or a method that is with object level locking.
+
+-->inter thread communication has come into picture to solve Consumer Producer problem
+
+-->there is thread it produces something
+-->there is another thread it consumers consumming
+
+public void getA(){
+
+synchronized(A.class){
+wait();
+
+}
+
+
+} 
+
+
+
+-->wait,notify , notifyall are present in object class
+-->wait,notify , notifyall are final methods we cant override
+-->wait(),notify() and notifyAll() can be called only from synchronized context
+
+
+wait:
+
+-->in synchronized block thread should the acquire lock and continue execution but as soon as you call wait() it releases the lock and will be waiting untill other thread
+notifies it
+
+
+
+day 22:
+1)inter thread communication example
+2)Deamon Threads
+3)FIle IO
+4)Generics
+5)Serialisation
+6)doubt clearing session on total core java
+
+2)DeamonTHreads:
+
+Deamon threads are service threads to main threads, once main thread dead service thread also dies automatically
+
+-->how to make a THread as deamon-->by calling setDeamon()
+-->to check if a thread is deamon-->isDeamon();
+-->deamon threads are low priority threads
+
+3)FIleIO: sometimes we will have to read data from the file and write the data to a file
+
+BufferedWriter:FileWriter
+BufferedReader:FileReader
+
+
+4)Generics: the main objective of generics in java is to resolve Typecasting and providing typesafety
+-->Generics is intoduced in 1.5 v
+
+ex:
+ArrayList<String> al=new ArrayList<>();
+here String is called generic parameter type
+
+
+challenge1:without generics is Typecasting 
+challenge2:classcastingException if not type casting
+
+
+
+checked exception and unchecked exception:
+
+uncheckedexceptions: we can create custom unchecked exception by extenidng RuntimeException or it children
+checkedxception: by extending Exception or on any of its children but not Runtimexception
+
+
+
+Serialisation:
+
+IT is process of converting state of of the java object to the network supported format is called serialisation
+
+
+class Em{
+int id;
+String dept;
+String collegre;
+}
+
+
+new Employe(101,"eee",'vit')
+-->it should implement Serializable
+-->FIleOutputStream and and ObjectOutputStream
+
+Deserialisation: it is process of converting network supported format to java object
+
+-->FIleInputStream and ObjectInputStream
+
+
+Transient: when you define a field as transient it will not participate in serialisation
+
+
+
+day 23: 
+
+SQL concepts
+
+->Applications will store data in databases in structured way so that we can do CRUD operations easily.
+
+C-CREATE 
+R-read or retrieve
+U-update
+D-DELETE
+
+mysql: https://dev.mysql.com/downloads/mysql/
+
+installation video:
+https://www.youtube.com/watch?v=WuBcTJnIuzo
+
+
+common queries:
+
+step1 : create a database
+
+query1:show databases; --> it will show all the available databases in the system
+
+query2:create database testing;
+ex:create database testing;
+
+query3: logging into database
+use testing;
+
+CREATE TABLES:
+
+syntax: create table tablename(columnname datatype, columnname datatype)
+
+ex:create table Employee(empId int,empName varchar(255), dept varchar(255));
+
+class Employee{
+
+int empId;
+
+String empName;
+
+String dept;
+
+
+
+}
+
+
+-creating a record
+
+inserting data into table:
+
+insert into tablename(columname,coulumname) values(value1,value2);
+
+ex: insert into Employee(empId,empName,dept) values(101,'sathish','dept');
+
+insert into Employee values(109,'rakhi','ece',34);
+
+R-Read or retrieve a record from database
+select queries:
+
+to see all columns:
+
+select * from tablename
+
+to read specific columns 
+syntax: select columname1,columnname2 from tablename
+
+
+where clause: it is uesd to specify a condition
+
+select * from tablename
+where 
+
+to check if column is null:
+select * from  Employee
+where dept is null;
+
+>
+
+<
+
+=
+
+in
+
+between: specify range
+
+
+order by-it is used for sorting based on columns
+
+-->to specify two conditions we can use and or &&
+
+-->to specify two conditions we can use or or ||
+
+
+
+dropping a table:
+
+drop table tablename;
+
+
+
+
+
+
+
+
+
+update:
+
+update tablename 
+set columname=value;
+
+ex: select * from  Employee
+
+
+show databases;
+
+create database testing;
+
+USE testing;
+
+show tables;
+
+show databases;
+
+use mysql;
+
+create table Employee(empId int,empName varchar(255), dept varchar(255),age INT);
+
+insert into Employee(empId,empName,dept,age) values(103,'sathish','eee',45);
+insert into Employee(empId,empName,dept,age) values(104,'tom','cse',24);
+insert into Employee(empId,empName,dept,age) values(105,'kumar','eee',45);
+
+insert into Employee(empId,empName,dept,age) values(106,'raj','eee',45);
+insert into Employee(empId,empName,dept,age) values(107,'sam','it',15);
+insert into Employee(empId,empName,dept,age) values(108,'praveen','cse',16);
+
+insert into Employee(age,empId,empName,dept) values(27,111,'sau','it');
+
+insert into Employee values(109,'rakhi','ece',34);
+
+select empName,age from  Employee
+where age>20 && age <40;
+
+select * from  Employee
+where dept ='cse' || dept='it';
+
+select * from Employee
+where dept in ('cse','it','ece');
+
+select * from employee
+where empId between 105 and 108;
+
+select * from Employee
+order by empName  ;
+
+update Employee
+set dept='eie'
+where empName='tom' 
+
+show databases;
+use testing
+drop table EMPLOYEE;
+
+
+CRUD
+
+Alter commands:
+
+adding column to existing table
+
+alter table tablename
+add columnaname datatype
+
+ex:
+
+alter table Employee
+add city varchar(50);
+
+
+removing a column to existing table
+
+alter table Employee
+drop city
+
+
+constraints in sql:
+
+primary key: unique and not null : the purpose of primary key is to represent a row as unique
+
+foreign key:
+
+unique:it should not be repeated
+
+not null: we should pass some value while inserting the data
+
+default: to provide some default value if user doesnt input it considers the default value
+
+
+queries:
+
+show databases;
+
+create database testing;
+
+USE testing;
+
+show tables;
+
+show databases;
+
+use mysql;
+
+drop table EMployee;
+create table Employee(empId int   primary key,empName varchar(255), dept varchar(255),age INT not null);
+
+insert into Employee(empId,empName,dept) values(103,'sathish','eee');
+insert into Employee(empId,empName,dept,age) values(101,'tom','cse',24);
+insert into Employee(empId,empName,dept,age) values(105,'kumar','eee',45);
+
+insert into Employee(empId,empName,dept,age) values(106,'raj','eee',45);
+insert into Employee(empId,empName,dept,age) values(107,'sam','it',15);
+insert into Employee(empId,empName,dept,age) values(108,'praveen','cse',16);
+
+insert into Employee(age,empId,empName,dept) values(27,111,'sau','it');
+
+insert into Employee values(109,'rakhi','ece',34);
+
+select * from  Employee
+where age>20 && age <40;
+
+select * from  Employee
+where dept ='cse' || dept='it';
+
+select * from Employee
+where dept in ('cse','it','ece');
+
+select * from employee
+where empId between 105 and 108;
+
+select * from Employee
+order by empName  ;
+
+delete from EMployee
+where empId=107;
+
+delete from EMployee;
+
+update Employee
+set dept='eie'
+where empId=105; 
+
+show databases;
+use testing;
+drop table EMPLOYEE;
+
+
+alter table Employee
+add city varchar(50);
+
+alter table Employee
+drop city;
+
+update Employee
+set city='bangalore';
+
+select * from Employee;
+
+
+
+
+day 24:
+1)Aggregate functions (count,sum,max,min,average)
+2)GroupBy
+3)joins
+->inner join
+->left join
+->right join
+->full outer join not available in sql)
+
+->count agrregator is used to find no of records
+
+1)select count(*) from  Employee
+2)select count(pk field) from EMployee
+
+->sum aggregator is used to sum data on some column
+
+select sum(age) from  Employee
+
+
+->Max
+to find max record on some coumn
+
+select empName,max(age) from  Employee
+
+->to find the least value on some column
+
+-->avg
+
+select avg(age) from EMployee
+
+
+GroupBy: it is used group date based on unique columns
+->it is used along with aggregators
+
+->get me count of employees from each department?
+eee-3
+ece-6
+it-5
+
+->how many people of same age
+24-3
+25-1
+26-9
+
+-->from each department get me the eldest person
+
+-->Foreign key : it is used to establish relationship between two table
+
+
+create table skills_employee(skillId int primary key, skillName varchar(255), empIdfk int, foreign key (empIdfk) references Employee(empId) )
+
+ rules:
+-> in order to insert into foreign key table, first we will have to insert data into primary key table
+->from pk table we cannot delete directly, first we will have to delete fk table row then pk table row
+
+
+
+day 25:
+
+1)Having
+2)cartesian product
+3)joins
+a)left outer join
+b)right join
+c)full joins
+d)inner joins
+
+4) unit testing on high level
+
+
+
+Having: it will come into picture only when we use group by clause
+->we can use aggregators in having
+-> we should use same aggregator which we use in select clause
+
+cartisan product:
+combining two tables into one single table with columns from both the tables is cartisan product
+->applying conditions on resultant cartisan product is nothing but join
+
+
+day26:
+
+https://github.com/lokeshprathapaneni/NPCLStudentsAssessments.git
