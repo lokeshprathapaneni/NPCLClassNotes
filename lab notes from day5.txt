@@ -1,4 +1,6 @@
-addedalineformergeconflict
+
+linenum1addedsomething
+
 
 Day5:
 
