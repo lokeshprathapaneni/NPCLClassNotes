@@ -1,5 +1,4 @@
-
-linenum1addedsomething
+for merge conflict
 
 
 Day5:
