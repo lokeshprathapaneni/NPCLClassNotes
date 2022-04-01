@@ -1,8 +1,8 @@
 something else
 linenum1addedsomething
+it will not raise merge conflict
 
-
-Day5:
+Day6:
 
 1)Inheritence
 
